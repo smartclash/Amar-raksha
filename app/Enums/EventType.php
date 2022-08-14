@@ -2,9 +2,9 @@
 
 namespace App\Enums;
 
-enum EventType
+enum EventType: string
 {
-    case CONTEST;
-    case DISASTER;
-    case TRAINING;
+    case CONTEST = 'contest';
+    case DISASTER = 'disaster';
+    case TRAINING = 'training';
 }

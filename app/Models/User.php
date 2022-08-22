@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'role',
         'email',
+        'phone',
         'password',
     ];
 
@@ -42,6 +43,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'role' => Role::class,
+        'phone' => 'integer',
         'email_verified_at' => 'datetime',
     ];
 }

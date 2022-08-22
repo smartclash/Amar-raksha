@@ -41,7 +41,7 @@ class RegistrationCommand extends Command
         $validator = \Validator::make(compact('name', 'email', 'phone', 'role', 'password'), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', Rules\Password::defaults()],
             'phone' => ['required', 'integer']
         ]);
 

@@ -24,6 +24,7 @@ class User extends Authenticatable
         'email',
         'phone',
         'password',
+        'institution_id',
     ];
 
     /**
@@ -44,6 +45,12 @@ class User extends Authenticatable
     protected $casts = [
         'role' => Role::class,
         'phone' => 'integer',
+        'institution_id' => 'integer',
         'email_verified_at' => 'datetime',
     ];
+
+    public function institution()
+    {
+        return $this->belongsTo(Institution::class);
+    }
 }

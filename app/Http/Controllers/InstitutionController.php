@@ -29,7 +29,7 @@ class InstitutionController extends Controller
 
     public function store(StoreInstitutionRequest $request)
     {
-        $request->user()->can('create', Institution::class);
+        $this->authorize('create', Institution::class);
 
         $institution = Institution::create([
             'name' => $request->get('name'),
@@ -57,7 +57,7 @@ class InstitutionController extends Controller
      */
     public function update(UpdateInstitutionRequest $request, Institution $institution)
     {
-        $request->user()->can('update', $institution);
+        $this->authorize('update', $institution);
     }
 
     /**
@@ -68,7 +68,7 @@ class InstitutionController extends Controller
      */
     public function destroy(Institution $institution)
     {
-        request()->user()->can('delete', $institution);
+        $this->authorize('delete', $institution);
     }
 
     public function createAdmin(StoreInstitutionAdminRequest $request, Institution $institution)

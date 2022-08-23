@@ -92,4 +92,9 @@ class InstitutionPolicy
     {
         return $user->role == Role::ADMIN;
     }
+
+    public function createVolunteer(User $user, Institution $institution)
+    {
+        return $institution->admins->contains('id', $user->id);
+    }
 }

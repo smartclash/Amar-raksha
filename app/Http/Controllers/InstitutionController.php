@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Role;
+use App\Http\Requests\StoreInstitutionAdminRequest;
 use App\Http\Requests\StoreInstitutionRequest;
+use App\Http\Requests\StoreInstitutionVolunteerRequest;
 use App\Http\Requests\UpdateInstitutionRequest;
 use App\Http\Resources\InstitutionResource;
 use App\Models\Institution;
+use App\Models\User;
 
 class InstitutionController extends Controller
 {
@@ -65,5 +69,43 @@ class InstitutionController extends Controller
     public function destroy(Institution $institution)
     {
         request()->user()->can('delete', $institution);
+    }
+
+    public function createAdmin(StoreInstitutionAdminRequest $request, Institution $institution)
+    {
+        $this->authorize('create', $institution);
+
+        $user = User::create([
+            'role' => Role::INSTITUTION,
+            ...$request->all()
+        ]);
+
+        $user->password = \Hash::make($request->get('password'));
+        $user->institution()->associate($institution);
+        $user->saveOrFail();
+
+        return $this->successJsonResponse(
+            'Created an admin for ' . $institution->name,
+            compact('user')
+        );
+    }
+
+    public function createVolunteer(StoreInstitutionVolunteerRequest $request, Institution $institution)
+    {
+        $this->authorize('createVolunteer', $institution);
+
+        $user = User::create([
+            'role' => Role::VOLUNTEER,
+            ...$request->all()
+        ]);
+
+        $user->password = \Hash::make($request->get('password'));
+        $user->institution()->associate($institution);
+        $user->saveOrFail();
+
+        return $this->successJsonResponse(
+            'Created an volunteer for ' . $institution->name,
+            compact('user')
+        );
     }
 }

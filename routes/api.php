@@ -17,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('user', fn() => \request()->user())->middleware('auth:sanctum');
 Route::apiResource('institution', InstitutionController::class);
+Route::post('institution/{institution:id}/admin', [InstitutionController::class, 'createAdmin']);
+Route::post('institution/{institution:id}/volunteer', [InstitutionController::class, 'createVolunteer']);
 
 require __DIR__.'/auth.php';

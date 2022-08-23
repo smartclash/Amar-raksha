@@ -20,7 +20,7 @@ class Institution extends Model
     public function admins()
     {
         return $this->hasMany(User::class)->where([
-            'role' => Role::ADMIN->value
+            'role' => Role::INSTITUTION->value
         ]);
     }
 }

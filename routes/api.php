@@ -16,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('user', fn() => \request()->user())->middleware('auth:sanctum');
-Route::apiResource('institution', InstitutionController::class);
+
 Route::post('institution/{institution:id}/admin', [InstitutionController::class, 'createAdmin']);
 Route::post('institution/{institution:id}/volunteer', [InstitutionController::class, 'createVolunteer']);
+Route::apiResource('institution', InstitutionController::class);
+
+Route::apiResource('blog', \App\Http\Controllers\BlogController::class);
+
+Route::post('event/{type}', [\App\Http\Controllers\EventController::class, 'store']);
+Route::apiResource('event', \App\Http\Controllers\EventController::class);
 
 require __DIR__.'/auth.php';

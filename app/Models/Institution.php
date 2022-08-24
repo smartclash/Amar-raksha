@@ -23,4 +23,11 @@ class Institution extends Model
             'role' => Role::INSTITUTION->value
         ]);
     }
+
+    public function volunteers()
+    {
+        return $this->hasMany(User::class)->where([
+            'role' => Role::VOLUNTEER->value
+        ]);
+    }
 }

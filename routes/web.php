@@ -22,3 +22,7 @@ Route::view('volunteers/dashboard', 'volunteers.dashboard');
 Route::view('blog', 'blogs.list');
 Route::view('blog/create', 'blogs.create');
 Route::view('blog/view', 'blogs.view');
+
+Route::view('event', 'events.list');
+Route::view('event/create', 'events.create');
+Route::view('event/view', 'events.view');

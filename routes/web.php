@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return ['Laravel' => app()->version()];
-});
+Route::view('/', 'welcome');
+Route::view('login', 'auth.login');
+Route::view('admin/dashboard', 'admin.dashboard');
+Route::view('institutions/dashboard', 'institutions.dashboard');
+Route::view('volunteers/dashboard', 'volunteers.dashboard');

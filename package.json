@@ -10,5 +10,10 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "alpinejs": "^3.10.3",
+        "bulma": "^0.9.4",
+        "sass": "^1.54.5"
     }
 }

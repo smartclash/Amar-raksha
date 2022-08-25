@@ -18,3 +18,7 @@ Route::view('login', 'auth.login');
 Route::view('admin/dashboard', 'admin.dashboard');
 Route::view('institutions/dashboard', 'institutions.dashboard');
 Route::view('volunteers/dashboard', 'volunteers.dashboard');
+
+Route::view('blog', 'blogs.list');
+Route::view('blog/create', 'blogs.create');
+Route::view('blog/view', 'blogs.view');

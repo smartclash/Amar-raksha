@@ -33,4 +33,9 @@ class Event extends Model
     {
         return $this->belongsTo(Institution::class);
     }
+
+    public function timeline()
+    {
+        return $this->hasMany(Timeline::class);
+    }
 }

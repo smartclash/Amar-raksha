@@ -35,3 +35,6 @@ Route::view('notifications', 'notifications.list');
 Route::view('notifications/create', 'notifications.create');
 
 Route::view('timeline/create', 'timeline.create');
+
+Route::view('volunteers', 'volunteers.list');
+Route::view('volunteers/create', 'volunteers.create');

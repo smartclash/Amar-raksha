@@ -26,3 +26,7 @@ Route::view('blog/view', 'blogs.view');
 Route::view('event', 'events.list');
 Route::view('event/create', 'events.create');
 Route::view('event/view', 'events.view');
+
+Route::view('institutions', 'institutions.list');
+Route::view('institutions/create', 'institutions.create');
+Route::view('institutions/view', 'institutions.view');

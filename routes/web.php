@@ -30,3 +30,6 @@ Route::view('event/view', 'events.view');
 Route::view('institutions', 'institutions.list');
 Route::view('institutions/create', 'institutions.create');
 Route::view('institutions/view', 'institutions.view');
+
+Route::view('notifications', 'notifications.list');
+Route::view('notifications/create', 'notifications.create');

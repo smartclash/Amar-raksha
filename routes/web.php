@@ -33,3 +33,5 @@ Route::view('institutions/view', 'institutions.view');
 
 Route::view('notifications', 'notifications.list');
 Route::view('notifications/create', 'notifications.create');
+
+Route::view('timeline/create', 'timeline.create');

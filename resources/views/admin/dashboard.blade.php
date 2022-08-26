@@ -58,12 +58,12 @@
                             <div class='card-content'>
                                 <div class='columns is-half'>
                                     <div class='column'>
-                                        <a class='button is-primary is-outlined is-fullwidth'>
+                                        <a class='button is-primary is-outlined is-fullwidth' href="{{ route('notifications.index') }}">
                                             View Notifications
                                         </a>
                                     </div>
                                     <div class='column'>
-                                        <a class='button is-fullwidth'>
+                                        <a class='button is-fullwidth' href="{{ route('notifications.create') }}">
                                             Create Notification
                                         </a>
                                     </div>

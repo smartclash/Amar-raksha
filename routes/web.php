@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InstitutionController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TimelineController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,8 @@ Route::resource('events', EventController::class);
 Route::resource('events.timeline', TimelineController::class)->scoped([
     'timeline' => 'id'
 ]);
+
+Route::resource('notifications', NotificationController::class);
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin.dashboard');

@@ -11,17 +11,19 @@
                                 <p class='card-header-title'>Create Blog</p>
                             </div>
                             <div class='card-content'>
-                                <form action=''>
+                                <form action='{{ route('blogs.store') }}' method="post">
+                                    @csrf
+
                                     <div class='field'>
                                         <label for='title' class='label'>Title</label>
                                         <div class='control'>
-                                            <input type='text' class='input' id='title' />
+                                            <input type='text' class='input' id='title' name="title" />
                                         </div>
                                     </div>
                                     <div class='field'>
                                         <label for='message' class='label'>Message</label>
                                         <div class='control'>
-                                            <textarea class='textarea' id='message' rows="15"></textarea>
+                                            <textarea class='textarea' id='message' rows="15" name="content"></textarea>
                                         </div>
                                     </div>
                                     <div class='field'>

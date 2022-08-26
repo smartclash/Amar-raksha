@@ -1,24 +1,25 @@
 @extends('layout.app')
 
 @section('content')
-    <div class='container'>
-        <div class='column is-half is-offset-3'>
-            <div class='mb-6'>
-                <p class='is-size-2 mt-4'>Title of blog</p>
-            </div>
-
-            <div class='card mb-6'>
-                <header class='card-header is-justify-content-space-between'>
-                    <p class='card-header-title is-size-5'>
-                        Author
-                    </p>
-                </header>
-                <div class='card-content'>
-                    <div class='content'>
-                        content inside
+    <section class='hero has-background-white-bis is-fullheight-with-navbar'>
+        <div class='hero-body'>
+            <div class='container'>
+                <div class="columns">
+                    <div class='column is-half is-offset-3'>
+                        <p class='is-size-2 mt-4'>{{ $blog->title }}</p>
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <p class="card-header-title">Author: {{ $blog->user->name }}</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    {{ $blog->content }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection

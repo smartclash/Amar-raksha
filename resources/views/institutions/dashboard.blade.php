@@ -79,12 +79,12 @@
                             <div class='card-content'>
                                 <div class='columns is-half'>
                                     <div class='column'>
-                                        <a class='button is-primary is-outlined is-fullwidth'>
+                                        <a class='button is-primary is-outlined is-fullwidth' href="{{ route('blogs.index') }}">
                                             View Blogs
                                         </a>
                                     </div>
                                     <div class='column'>
-                                        <a class='button is-fullwidth'>
+                                        <a class='button is-fullwidth' href="{{ route('blogs.create') }}">
                                             Create Blog
                                         </a>
                                     </div>

@@ -13,7 +13,9 @@ class BlogController extends Controller
     {
         $blogs = Blog::all();
 
-        return view('blogs.list');
+        return view('blogs.list')->with([
+            'blogs' => $blogs
+        ]);
     }
 
     public function create()
@@ -27,15 +29,18 @@ class BlogController extends Controller
 
         $blog = Blog::create([
             'slug' => \Str::slug($request->get('title')),
+            'user_id' => auth()->id(),
             ...$request->all()
         ]);
 
-        return $this->successJsonResponse('Successfully created blog', $blog);
+        return redirect()->route('blogs.show', $blog);
     }
 
     public function show(Blog $blog)
     {
-        return view('blogs.view');
+        return view('blogs.view')->with([
+            'blog' => $blog
+        ]);
     }
 
     /**

@@ -11,51 +11,55 @@
                                 <p class='card-header-title'>Create Event</p>
                             </div>
                             <div class='card-content'>
-                                <div class='field'>
-                                    <label class='label'>Title</label>
-                                    <div class='control'>
-                                        <input class='input' type='text' />
-                                    </div>
-                                </div>
+                                <form action="{{ route('events.store') }}" method="post">
+                                    @csrf
 
-                                <div class='field'>
-                                    <label class='label'>Sub Title</label>
-                                    <div class='control'>
-                                        <input class='input' type='text' />
-                                    </div>
-                                </div>
-
-                                <div class='field'>
-                                    <label class='label'>Location</label>
-                                    <div class='control'>
-                                        <input class='input' type='text' />
-                                    </div>
-                                </div>
-
-                                <div class='field'>
-                                    <label class='label'>Type</label>
-                                    <div class='control is-expanded'>
-                                        <div class='select is-fullwidth'>
-                                            <select>
-                                                <option>Disaster</option>
-                                                <option>Contest</option>
-                                                <option>Fundraising</option>
-                                            </select>
+                                    <div class='field'>
+                                        <label class='label'>Title</label>
+                                        <div class='control'>
+                                            <input class='input' type='text' name="title" />
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class='field'>
-                                    <label class='label'>Message</label>
-                                    <div class='control'>
-                                        <textarea class='textarea'></textarea>
+                                    <div class='field'>
+                                        <label class='label'>Sub Title</label>
+                                        <div class='control'>
+                                            <input class='input' type='text' name="subtitle" />
+                                        </div>
                                     </div>
-                                </div>
-                                <div class='field'>
-                                    <div class='control'>
-                                        <input type='submit' value='Submit' class='button is-primary is-outlined is-fullwidth' />
+
+                                    <div class='field'>
+                                        <label class='label'>Location</label>
+                                        <div class='control'>
+                                            <input class='input' type='text' name="location" />
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class='field'>
+                                        <label class='label' for="type">Type</label>
+                                        <div class='control is-expanded'>
+                                            <div class='select is-fullwidth'>
+                                                <select name="type" id="type">
+                                                    <option value="disaster">Disaster</option>
+                                                    <option value="contest">Contest</option>
+                                                    <option value="fundraising">Fundraising</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class='field'>
+                                        <label class='label'>Message</label>
+                                        <div class='control'>
+                                            <textarea class='textarea' name="content" rows="15"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class='field'>
+                                        <div class='control'>
+                                            <input type='submit' value='Submit' class='button is-primary is-outlined is-fullwidth' />
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

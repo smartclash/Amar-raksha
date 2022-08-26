@@ -16,12 +16,12 @@
                             <div class='card-content'>
                                 <div class='columns is-half'>
                                     <div class='column'>
-                                        <a class='button is-primary is-outlined is-fullwidth'>
+                                        <a class='button is-primary is-outlined is-fullwidth' href="{{ route('events.index') }}">
                                             View Events
                                         </a>
                                     </div>
                                     <div class='column'>
-                                        <a class='button is-fullwidth'>
+                                        <a class='button is-fullwidth' href="{{ route('events.create') }}">
                                             Create Events
                                         </a>
                                     </div>

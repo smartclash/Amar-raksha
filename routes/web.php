@@ -33,7 +33,6 @@ Route::resource('institutions', InstitutionController::class);
 
 Route::resource('blogs', BlogController::class);
 
-Route::post('events/{type}', [EventController::class, 'store']);
 Route::resource('events', EventController::class);
 
 Route::resource('events.timeline', TimelineController::class)->scoped([

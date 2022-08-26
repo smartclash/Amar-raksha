@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Enums\Role;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Blade::if('admin', function () {
+            return auth()->user()->role == Role::ADMIN;
+        });
+
+        \Blade::if('institution', function () {
+            return auth()->user()->role == Role::INSTITUTION;
+        });
+
+        \Blade::if('volunteer', function () {
+            return auth()->user()->role == Role::VOLUNTEER;
+        });
     }
 }

@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InstitutionController;
+use App\Http\Controllers\TimelineController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,28 +18,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
-Route::view('login', 'auth.login');
-Route::view('admin/dashboard', 'admin.dashboard');
-Route::view('institutions/dashboard', 'institutions.dashboard');
-Route::view('volunteers/dashboard', 'volunteers.dashboard');
+Route::view('/', 'welcome')->name('welcome');
 
-Route::view('blog', 'blogs.list');
-Route::view('blog/create', 'blogs.create');
-Route::view('blog/view', 'blogs.view');
+Route::get('home', [HomeController::class, 'home'])->name('home');
 
-Route::view('event', 'events.list');
-Route::view('event/create', 'events.create');
-Route::view('event/view', 'events.view');
+Route::post('institutions/{institution:id}/admin', [InstitutionController::class, 'createAdmin'])
+    ->name('institutions.create.admin');
+Route::post('institutions/{institution:id}/volunteer/create', [InstitutionController::class, 'volunteerForm'])
+    ->name('institutions.create.volunteer');
+Route::get('institutions/{institution:id}/volunteer', [InstitutionController::class, 'listVolunteer'])
+    ->name('institutions.volunteer');
+Route::post('institutions/{institution:id}/volunteer/create', [InstitutionController::class, 'createVolunteer']);
+Route::resource('institutions', InstitutionController::class);
 
-Route::view('institutions', 'institutions.list');
-Route::view('institutions/create', 'institutions.create');
-Route::view('institutions/view', 'institutions.view');
+Route::resource('blogs', BlogController::class);
 
-Route::view('notifications', 'notifications.list');
-Route::view('notifications/create', 'notifications.create');
+Route::resource('events', EventController::class);
 
-Route::view('timeline/create', 'timeline.create');
+Route::resource('events.timeline', TimelineController::class)->scoped([
+    'timeline' => 'id'
+]);
 
-Route::view('volunteers', 'volunteers.list');
-Route::view('volunteers/create', 'volunteers.create');
+Route::prefix('admin')->group(function () {
+    Route::get('/', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
+
+require __DIR__.'/auth.php';

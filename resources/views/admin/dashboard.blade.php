@@ -7,7 +7,7 @@
                 <div class="columns is-multiline">
                     <div class='column is-half is-offset-3'>
                         <div class='mb-6'>
-                            <p class='is-size-2'>Welcome, Kiridharan</p>
+                            <p class='is-size-2'>Welcome, {{ auth()->user()->name }}</p>
                         </div>
                         <div class='card'>
                             <div class='card-header'>
@@ -16,12 +16,12 @@
                             <div class='card-content'>
                                 <div class='columns is-half'>
                                     <div class='column'>
-                                        <a class='button is-primary is-outlined is-fullwidth'>
+                                        <a class='button is-primary is-outlined is-fullwidth' href="{{ route('events.index') }}">
                                             View Events
                                         </a>
                                     </div>
                                     <div class='column'>
-                                        <a class='button is-fullwidth'>
+                                        <a class='button is-fullwidth' href="{{ route('events.create') }}">
                                             Create Events
                                         </a>
                                     </div>
@@ -37,12 +37,12 @@
                             <div class='card-content'>
                                 <div class='columns is-half'>
                                     <div class='column'>
-                                        <a class='button is-primary is-outlined is-fullwidth'>
+                                        <a class='button is-primary is-outlined is-fullwidth' href="{{ route('institutions.index') }}">
                                             View Institutions
                                         </a>
                                     </div>
                                     <div class='column'>
-                                        <a class='button is-fullwidth'>
+                                        <a class='button is-fullwidth' href="{{ route('institutions.create') }}">
                                             Create Institution
                                         </a>
                                     </div>

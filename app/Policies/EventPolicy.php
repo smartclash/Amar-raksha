@@ -50,6 +50,11 @@ class EventPolicy
         return $user->role == Role::INSTITUTION;
     }
 
+    public function look(User $user)
+    {
+        return $user->role !== Role::VOLUNTEER;
+    }
+
     /**
      * Determine whether the user can update the model.
      *

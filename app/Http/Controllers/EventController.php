@@ -12,13 +12,23 @@ class EventController extends Controller
 {
     public function index()
     {
-        return EventResource::collection(
-            Event::all()
-        );
+        $events = Event::all();
+
+        return view('events.list')->with([
+            'events' => $events
+        ]);
     }
 
-    public function store(StoreEventRequest $request, EventType $type)
+    public function create()
     {
+        $this->authorize('look', Event::class);
+
+        return view('events.create');
+    }
+
+    public function store(StoreEventRequest $request)
+    {
+        $type = EventType::tryFrom($request->get('type'));
         $this->authorize('create', [Event::class, $type]);
 
         $event = Event::create([
@@ -36,7 +46,10 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        return new EventResource($event);
+        return view('events.view')->with([
+            'event' => $event,
+            'timelines' => $event->timeline
+        ]);
     }
 
     /**

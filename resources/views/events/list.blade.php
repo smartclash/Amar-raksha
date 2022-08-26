@@ -4,33 +4,35 @@
     <section class='hero has-background-white-bis is-fullheight-with-navbar'>
         <div class='hero-body'>
             <div class='container'>
-                <div class='column is-half is-offset-3'>
-                    <div class='mb-6'>
-                        <p class='is-size-2'>Welcome, Kiridharan</p>
+                <div class="columns is-multiline">
+                    <div class='column is-half is-offset-3'>
+                        <div class='mb-6'>
+                            <p class='is-size-2'>View events</p>
+                        </div>
                     </div>
-
-                    <div class='card mb-6'>
-                        <header class='card-header'>
-                            <a class='card-header-title'>
-                                Heading
-                            </a>
-                            <button class='card-header-icon' aria-label='more options'>
-                                <span class='icon'>
-                                    <i class='fas fa-angle-down' aria-hidden='true'></i>
-                                </span>
-                            </button>
-                        </header>
-                        <div class='card-content'>
-                            <div class='content'>
-                                Subheading
-                                <br/>
+                    @foreach($events as $event)
+                        <div class="column is-half is-offset-3">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p class="is-size-3">{{ $event->title }}</p>
+                                    <p class="is-size-6">{{ $event->subtitle }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="card-footer-item">
+                                        <div class="tags has-addons">
+                                            <tag class="tag is-dark">TYPE</tag>
+                                            <tag class="tag is-info">{{ $event->type->name }}</tag>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer-item">
+                                        <a href="{{ route('events.show', $event) }}" class="button is-primary is-outlined is-fullwidth">
+                                            Details &rightarrow;
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <footer class='card-footer'>
-                            <a href='#' class='card-footer-item'>Details</a>
-                        </footer>
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -11,9 +11,14 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return BlogResource::collection(
-            Blog::all()
-        );
+        $blogs = Blog::all();
+
+        return view('blogs.list');
+    }
+
+    public function create()
+    {
+        return view('blogs.create');
     }
 
     public function store(StoreBlogRequest $request)
@@ -30,7 +35,7 @@ class BlogController extends Controller
 
     public function show(Blog $blog)
     {
-        return new BlogResource($blog);
+        return view('blogs.view');
     }
 
     /**

@@ -16,18 +16,3 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('user', fn() => \request()->user())->middleware('auth:sanctum');
-
-Route::post('institutions/{institution:id}/admin', [InstitutionController::class, 'createAdmin']);
-Route::post('institutions/{institution:id}/volunteer', [InstitutionController::class, 'createVolunteer']);
-Route::apiResource('institutions', InstitutionController::class);
-
-Route::apiResource('blogs', \App\Http\Controllers\BlogController::class);
-
-Route::post('events/{type}', [\App\Http\Controllers\EventController::class, 'store']);
-Route::apiResource('events', \App\Http\Controllers\EventController::class);
-
-Route::apiResource('events.timeline', \App\Http\Controllers\TimelineController::class)->scoped([
-    'timeline' => 'id'
-]);
-
-require __DIR__.'/auth.php';

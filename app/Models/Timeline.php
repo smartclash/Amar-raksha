@@ -16,10 +16,6 @@ class Timeline extends Model
         'event_id'
     ];
 
-    protected $casts = [
-        'starts_at' => 'timestamp'
-    ];
-
     public function event()
     {
         return $this->belongsTo(Event::class);

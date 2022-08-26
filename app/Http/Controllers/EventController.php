@@ -12,9 +12,14 @@ class EventController extends Controller
 {
     public function index()
     {
-        return EventResource::collection(
-            Event::all()
-        );
+        $events = Event::all();
+
+        return view('events.list');
+    }
+
+    public function create()
+    {
+        return view('events.create');
     }
 
     public function store(StoreEventRequest $request, EventType $type)
@@ -36,7 +41,7 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        return new EventResource($event);
+        return view('events.view');
     }
 
     /**

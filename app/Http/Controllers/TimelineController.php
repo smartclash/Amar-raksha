@@ -10,6 +10,11 @@ use App\Models\Timeline;
 
 class TimelineController extends Controller
 {
+    public function create(Event $event)
+    {
+        return view('timeline.create');
+    }
+
     public function store(StoreTimelineRequest $request, Event $event)
     {
         $this->authorize('create', [Timeline::class, $event]);

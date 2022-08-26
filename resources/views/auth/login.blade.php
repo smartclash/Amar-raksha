@@ -15,27 +15,29 @@
                     <div class='mt-5 ml-4 mr-4'>
                         <p class='is-size-2 pb-4'>Login</p>
 
-                        <div class='field'>
-                            <label class='label'>Phone</label>
-                            <div class='control'>
-                                <input class='input is-medium' type='tel' placeholder='1234567890'/>
-                            </div>
-                        </div>
+                        <form action="{{ route('login') }}" method="post">
+                            @csrf
 
-                        <div class='field'>
-                            <label class='label'>Password</label>
-                            <div class='control'>
-                                <input class='input is-medium' type='password'/>
+                            <div class='field'>
+                                <label class='label' for="phone">Phone</label>
+                                <div class='control'>
+                                    <input name="phone" class='input is-medium' type='tel' placeholder='1234567890' id="phone" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class='field'>
-                            <div class='control'>
-                                <button class='button is-fullwidth has-text-weight-bold is-primary is-outlined'>
-                                    Login
-                                </button>
+                            <div class='field'>
+                                <label class='label' for="password">Password</label>
+                                <div class='control'>
+                                    <input name="password" class='input is-medium' type='password' id="password" />
+                                </div>
                             </div>
-                        </div>
+
+                            <div class='field'>
+                                <div class='control'>
+                                    <input class='button is-fullwidth has-text-weight-bold is-primary is-outlined' type="submit" value="Login">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

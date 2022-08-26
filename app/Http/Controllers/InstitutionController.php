@@ -22,9 +22,16 @@ class InstitutionController extends Controller
 
     public function index()
     {
-        return InstitutionResource::collection(
-            Institution::all()
-        );
+        $institutions = Institution::all();
+
+        return view('institutions.list')->with([
+            'institutions' => $institutions
+        ]);
+    }
+
+    public function create()
+    {
+        return view('institutions.create');
     }
 
     public function store(StoreInstitutionRequest $request)
@@ -45,7 +52,9 @@ class InstitutionController extends Controller
 
     public function show(Institution $institution)
     {
-        return new InstitutionResource($institution);
+        return view('institutions.view')->with([
+            'institution' => $institution
+        ]);
     }
 
     /**
@@ -88,6 +97,23 @@ class InstitutionController extends Controller
             'Created an admin for ' . $institution->name,
             compact('user')
         );
+    }
+
+    public function listVolunteer(Institution $institution)
+    {
+        return view('volunteers.list')->with([
+            'volunteers' => $institution->volunteers,
+            'institution' => $institution,
+        ]);
+    }
+
+    public function volunteerForm(Institution $institution)
+    {
+        $this->authorize('createVolunteer', $institution);
+
+        return view('volunteers.create')->with([
+            'institution' => $institution
+        ]);
     }
 
     public function createVolunteer(StoreInstitutionVolunteerRequest $request, Institution $institution)

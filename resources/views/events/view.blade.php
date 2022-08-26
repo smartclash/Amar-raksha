@@ -25,9 +25,11 @@
 
                         </div>
 
-                        <div class='mb-6'>
-                            <p class='is-size-2'>Timeline</p>
-                        </div>
+                        @if(count($timelines) > 0)
+                            <div class='mb-6'>
+                                <p class='is-size-2'>Timeline</p>
+                            </div>
+                        @endif
                     </div>
 
                     @foreach($timelines as $timeline)

@@ -45,6 +45,11 @@ class InstitutionPolicy
         return $user->role == Role::ADMIN;
     }
 
+    public function dashboard(User $user)
+    {
+        return $user->role == Role::INSTITUTION;
+    }
+
     /**
      * Determine whether the user can update the model.
      *

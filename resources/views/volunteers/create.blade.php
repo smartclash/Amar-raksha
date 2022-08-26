@@ -11,7 +11,7 @@
                                 <p class='card-header-title'>Create Volunteers</p>
                             </div>
                             <div class='card-content'>
-                                <form action="{{ route('institutions.create.volunteer') }}" method="post">
+                                <form action="{{ route('institutions.create.volunteer', $institution) }}" method="post">
                                     @csrf
                                     <div class='field'>
                                         <label class='label'>Institution name</label>

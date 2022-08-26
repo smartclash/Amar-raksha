@@ -8,6 +8,7 @@
     <title>Amar-raksha</title>
 
     @vite(['resources/css/app.sass', 'resources/js/app.js'])
+    @stack('head')
 </head>
 <body>
     @include('layout.navbar')

@@ -34,6 +34,8 @@ class EventController extends Controller
         $event = Event::create([
             'type' => $type,
             'user_id' => auth()->id(),
+            'latitude' => $request->get('lat'),
+            'longitude' => $request->get('lng'),
             ...$request->all()
         ]);
 
@@ -41,7 +43,7 @@ class EventController extends Controller
             $event->institution()->associate((int) $request->get('institution'));
         }
 
-        return $this->successJsonResponse('Created event successfully', $event);
+        return redirect()->route('events.show', $event);
     }
 
     public function show(Event $event)

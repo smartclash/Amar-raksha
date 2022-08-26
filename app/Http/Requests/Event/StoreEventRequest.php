@@ -28,8 +28,8 @@ class StoreEventRequest extends FormRequest
             'title' => ['required', 'string'],
             'subtitle' => ['required', 'string'],
             'content' => ['required', 'string'],
-            'latitude' => ['required', 'string'],
-            'longitude' => ['required', 'string'],
+            'lat' => ['required', 'string'],
+            'lng' => ['required', 'string'],
             'institution' => ['sometimes', 'nullable', 'exists:institutions,id']
         ];
     }

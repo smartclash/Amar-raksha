@@ -22,9 +22,10 @@ Route::view('/', 'welcome')->name('welcome');
 
 Route::get('home', [HomeController::class, 'home'])->name('home');
 
+Route::get('institutions/dashboard', [InstitutionController::class, 'dashboard'])->name('institution.dashboard');
 Route::post('institutions/{institution:id}/admin', [InstitutionController::class, 'createAdmin'])
     ->name('institutions.create.admin');
-Route::post('institutions/{institution:id}/volunteer/create', [InstitutionController::class, 'volunteerForm'])
+Route::get('institutions/{institution:id}/volunteer/create', [InstitutionController::class, 'volunteerForm'])
     ->name('institutions.create.volunteer');
 Route::get('institutions/{institution:id}/volunteer', [InstitutionController::class, 'listVolunteer'])
     ->name('institutions.volunteer');

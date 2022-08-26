@@ -20,6 +20,13 @@ class InstitutionController extends Controller
         ]);
     }
 
+    public function dashboard()
+    {
+        $this->authorize('dashboard', Institution::class);
+
+        return view('institutions.dashboard');
+    }
+
     public function index()
     {
         $institutions = Institution::all();

@@ -5,6 +5,8 @@ specifiers:
   axios: ^0.27
   bulma: ^0.9.4
   laravel-vite-plugin: ^0.5.0
+  leaflet: ^1.8.0
+  leaflet-geosearch: ^3.6.1
   lodash: ^4.17.19
   postcss: ^8.1.14
   sass: ^1.54.5
@@ -13,6 +15,8 @@ specifiers:
 dependencies:
   alpinejs: 3.10.3
   bulma: 0.9.4
+  leaflet: 1.8.0
+  leaflet-geosearch: 3.6.1
   sass: 1.54.5
 
 devDependencies:
@@ -405,6 +409,17 @@ packages:
       vite: 3.0.9_sass@1.54.5
       vite-plugin-full-reload: 1.0.4_vite@3.0.9
     dev: true
+
+  /leaflet-geosearch/3.6.1:
+    resolution: {integrity: sha512-Axf8e8kXulC9BCQ9yql6nHyKE7xm/oJDuZsWGDjrprto0rAlCv39tbPs5mn3LrpGOpKcrmJtAt1UkUmkVW47FA==}
+    optionalDependencies:
+      leaflet: 1.8.0
+    dev: false
+
+  /leaflet/1.8.0:
+    resolution: {integrity: sha512-gwhMjFCQiYs3x/Sf+d49f10ERXaEFCPr+nVTryhAW8DWbMGqJqt9G4XuIaHmFW08zYvhgdzqXGr8AlW8v8dQkA==}
+    requiresBuild: true
+    dev: false
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}

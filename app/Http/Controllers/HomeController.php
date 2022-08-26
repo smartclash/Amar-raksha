@@ -11,6 +11,8 @@ class HomeController extends Controller
     {
         if (auth()->user()->role == Role::ADMIN) {
             return redirect()->route('admin.dashboard');
+        } elseif (auth()->user()->role == Role::INSTITUTION) {
+            return redirect()->route('institution.dashboard');
         }
     }
 }

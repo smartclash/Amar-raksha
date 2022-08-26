@@ -6,7 +6,7 @@
             <div class='Main_logo_container'>
                 <div class='hero-body column'>
                     <div class='container has-text-centered is-justify-content-space-around'>
-                        <Image src='' alt='National Disaster Response Force Logo'/>
+                        <img src='{{ Storage::url('logo.jpg') }}' alt='National Disaster Response Force Logo' width="400px" />
                     </div>
                 </div>
             </div>

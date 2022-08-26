@@ -11,7 +11,7 @@
                                 <p class='card-header-title'>Create Event</p>
                             </div>
                             <div class='card-content'>
-                                <form action="{{ route('events.store') }}" method="post">
+                                <form action="{{ route('events.store') }}" method="post" id="map-form">
                                     @csrf
 
                                     <div class='field'>
@@ -31,7 +31,7 @@
                                     <div class='field'>
                                         <label class='label'>Location</label>
                                         <div class='control'>
-                                            <input class='input' type='text' name="location" />
+                                            <div id="map" style="height: 580px" class="is-fullwidth"></div>
                                         </div>
                                     </div>
 
@@ -59,6 +59,8 @@
                                             <input type='submit' value='Submit' class='button is-primary is-outlined is-fullwidth' />
                                         </div>
                                     </div>
+                                    <input type="hidden" name="lat" id="lat" value="" />
+                                    <input type="hidden" name="lng" id="lng" value="" />
                                 </form>
                             </div>
                         </div>
@@ -68,3 +70,7 @@
         </div>
     </section>
 @endsection
+
+@push('head')
+    @vite(['resources/js/leaflet.js'])
+@endpush

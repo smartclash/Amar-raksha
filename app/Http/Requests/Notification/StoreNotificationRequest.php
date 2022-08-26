@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Event;
+namespace App\Http\Requests\Notification;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreEventRequest extends FormRequest
+class StoreNotificationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,9 @@ class StoreEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => ['required', 'in:disaster,contest,training'],
             'title' => ['required', 'string'],
-            'subtitle' => ['required', 'string'],
-            'content' => ['required', 'string'],
-            'lat' => ['required', 'string'],
-            'lng' => ['required', 'string'],
-            'institution' => ['sometimes', 'nullable', 'exists:institutions,id']
+            'message' => ['required', 'string'],
+            'level' => ['required', 'in:L1,L2,L3']
         ];
     }
 }

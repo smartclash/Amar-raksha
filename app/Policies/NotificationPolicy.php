@@ -2,12 +2,11 @@
 
 namespace App\Policies;
 
-use App\Enums\Role;
-use App\Models\Institution;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class InstitutionPolicy
+class NotificationPolicy
 {
     use HandlesAuthorization;
 
@@ -19,19 +18,19 @@ class InstitutionPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        //
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Institution  $institution
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Institution $institution)
+    public function view(User $user, Notification $notification)
     {
-        return true;
+        //
     }
 
     /**
@@ -42,64 +41,54 @@ class InstitutionPolicy
      */
     public function create(User $user)
     {
-        return $user->role == Role::ADMIN;
-    }
-
-    public function dashboard(User $user)
-    {
-        return $user->role == Role::INSTITUTION;
+        //
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Institution  $institution
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Institution $institution)
+    public function update(User $user, Notification $notification)
     {
-        return $user->role == Role::ADMIN;
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Institution  $institution
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Institution $institution)
+    public function delete(User $user, Notification $notification)
     {
-        return $user->role == Role::ADMIN;
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Institution  $institution
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Institution $institution)
+    public function restore(User $user, Notification $notification)
     {
-        return $user->role == Role::ADMIN;
+        //
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Institution  $institution
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Institution $institution)
+    public function forceDelete(User $user, Notification $notification)
     {
-        return $user->role == Role::ADMIN;
-    }
-
-    public function createVolunteer(User $user, Institution $institution)
-    {
-        return $institution->admins->contains('id', $user->id);
+        //
     }
 }

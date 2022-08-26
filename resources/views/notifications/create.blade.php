@@ -27,11 +27,10 @@
                                             <div class='control'>
                                                 <div class='select is-fullwidth'>
                                                     <select name="level">
-                                                        <option value='L3'>L3 - Just sends notification</option>
-                                                        <option value='L2'>L2 - Sends email and SMS</option>
-                                                        <option value='L1'>L1 - Makes a voicecall and plays the
-                                                            message
-                                                        </option>
+                                                        <option value='L4'>L4 - Sends a broadcast email</option>
+                                                        <option value='L3'>L3 - Sends a broadcast SMS</option>
+                                                        <option value='L2'>L2 - Sends broadcast SMS only to admins and institutions</option>
+                                                        <option value='L1'>L1 - Makes a broadcast call to every volunteer</option>
                                                     </select>
                                                 </div>
                                             </div>

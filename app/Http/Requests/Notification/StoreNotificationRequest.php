@@ -26,7 +26,7 @@ class StoreNotificationRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'message' => ['required', 'string'],
-            'level' => ['required', 'in:L1,L2,L3']
+            'level' => ['required', 'in:L1,L2,L3,L4']
         ];
     }
 }

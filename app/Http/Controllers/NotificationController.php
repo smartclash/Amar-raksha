@@ -31,7 +31,12 @@ class NotificationController extends Controller
             '+919940424134',
             '+919080508847',
             '+917005595182',
-            '+919629729142,'
+            '+919629729142',
+        ];
+
+        $specials = [
+            '+919344582248',
+            '+919629729142',
         ];
 
         if ($request->get('level') == 'L1') {
@@ -40,8 +45,15 @@ class NotificationController extends Controller
                     'twiml' => '<Response><Say>' . $request->get('message') . '</Say></Response>'
                 ]);
             });
-        } elseif ($request->get('level') == 'L2') {
+        } elseif ($request->get('level') == 'L3') {
             collect($numbers)->each(function ($number) use ($request) {
+                app()->make('twilio')->messages->create($number, [
+                    'from' => '+18457123889',
+                    'body' => $request->get('message')
+                ]);
+            });
+        } elseif ($request->get('level') == 'L2') {
+            collect($specials)->each(function ($number) use ($request) {
                 app()->make('twilio')->messages->create($number, [
                     'from' => '+18457123889',
                     'body' => $request->get('message')
@@ -56,6 +68,8 @@ class NotificationController extends Controller
             'latitude' => $request->get('latitude', '12.9725747'),
             'longitude' => $request->get('longitude', '80.2500219'),
         ]);
+
+        return redirect()->route('notifications.index');
     }
 
     /**

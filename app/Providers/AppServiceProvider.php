@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Enums\Role;
 use Illuminate\Support\ServiceProvider;
+use Twilio\Rest\Client;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,6 +35,13 @@ class AppServiceProvider extends ServiceProvider
 
         \Blade::if('volunteer', function () {
             return auth()->user()->role == Role::VOLUNTEER;
+        });
+
+        $this->app->bind('twilio', function () {
+            return new Client(
+                config('services.twilio.sid'),
+                config('services.twilio.token')
+            );
         });
     }
 }

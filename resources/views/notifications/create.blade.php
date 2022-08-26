@@ -8,15 +8,17 @@
                     <div class='column is-half is-offset-3'>
                         <div class='card'>
                             <div class='card-header'>
-                                <p class='card-header-title'>Create Notifications</p>
+                                <p class='card-header-title'>Create Notification</p>
                             </div>
 
                             <div class='card-content'>
-                                <form action=''>
+                                <form action='{{ route('notifications.store') }}' method="post">
+                                    @csrf
+
                                     <div class='field'>
                                         <label for='title' class='label'>Title</label>
                                         <div class='control'>
-                                            <input type='text' class='input' id='title'/>
+                                            <input type='text' class='input' id='title' name="title" />
                                         </div>
                                     </div>
                                     <div class='field'>
@@ -24,7 +26,7 @@
                                             <label class='label'>Notification Spread Level</label>
                                             <div class='control'>
                                                 <div class='select is-fullwidth'>
-                                                    <select>
+                                                    <select name="level">
                                                         <option value='L3'>L3 - Just sends notification</option>
                                                         <option value='L2'>L2 - Sends email and SMS</option>
                                                         <option value='L1'>L1 - Makes a voicecall and plays the
@@ -34,16 +36,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class='field mb-5'>
-                                            <label class='label has-text-danger'>⚠️ This notification make a emergency
-                                                call to everyone ⚠️</label>
-                                        </div>
+{{--                                        <div class='field mb-5'>--}}
+{{--                                            <label class='label has-text-danger'>⚠️ This notification make a emergency--}}
+{{--                                                call to everyone ⚠️</label>--}}
+{{--                                        </div>--}}
                                     </div>
                                     <div class='field'>
                                         <label class='label'>Message</label>
                                         <div class='control'>
                                             <textarea class='textarea' placeholder='Express your thought'
-                                                      rows="10"></textarea>
+                                                      rows="10" name="message"></textarea>
                                         </div>
                                     </div>
                                     <div class='field'>
